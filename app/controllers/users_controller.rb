@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+      session[:id] = @user.id
       session[:success_message] = "Successfully Logged In!."
       redirect "users/#{@user.id}"
     else
