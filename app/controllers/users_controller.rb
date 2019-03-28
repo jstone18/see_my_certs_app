@@ -24,14 +24,24 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
       # flash "Successfully Logged In!."
-      redirect "users/#{@user.id}"
+      redirect "users/#{@user.username}"
     else
       redirect '/login'
     end
   end
 
+  get '/logout' do
+    logout!
+    redirect "/"
+  end
+
   # GET: /users/5
-  get "/users/:id" do
+  get "/users/:username" do
+    if logged_in?
+      @user = User.find_by(username: params[:username])
+    else
+      redirect "/login"    
+    end
     erb :"/users/show.html"
   end
 
