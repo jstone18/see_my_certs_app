@@ -5,8 +5,14 @@ class UsersController < ApplicationController
   end
 
   post "/users" do
+    if params[:full_name] != "" && params[:email] != "" && params[:password] != ""
+      @user = User.create(params)
+      redirect "/login"
+    else
+      # flash "Not a Valid Input or Missing Info"
+      redirect "/users/new"
+    end
     # binding.pry
-    redirect "/login"
   end
 
   get '/login' do
@@ -17,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
-      session[:success_message] = "Successfully Logged In!."
+      # flash "Successfully Logged In!."
       redirect "users/#{@user.id}"
     else
       redirect '/login'
