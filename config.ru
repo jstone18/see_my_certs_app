@@ -7,4 +7,4 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
-use UserController
+use UsersController
