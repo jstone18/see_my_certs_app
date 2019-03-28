@@ -1,14 +1,27 @@
 class UsersController < ApplicationController
 
-  # GET: /users/new
   get "/users/new" do
     erb :"/users/new.html"
   end
 
-  # POST: /users
   post "/users" do
-    binding.pry
-    redirect "/users"
+    # binding.pry
+    redirect "/login"
+  end
+
+  get '/login' do
+    erb :"users/login.html"
+  end
+
+  post '/login' do
+    @user = User.find_by(username: params[:username])
+    if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      session[:success_message] = "Successfully Logged In!."
+      redirect "users/#{@user.id}"
+    else
+      redirect '/login'
+    end
   end
 
   # GET: /users/5
