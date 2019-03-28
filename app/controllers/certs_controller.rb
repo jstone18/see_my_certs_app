@@ -1,10 +1,5 @@
 class CertsController < ApplicationController
 
-  # GET: /certs
-  get "/certs" do
-    erb :"/certs/index.html"
-  end
-
   # GET: /certs/new
   get "/certs/new" do
     erb :"/certs/new.html"
