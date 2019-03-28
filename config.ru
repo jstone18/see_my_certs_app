@@ -7,4 +7,5 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
+use CertsController
 use UsersController
