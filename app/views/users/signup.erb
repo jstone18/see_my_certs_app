@@ -1,33 +1,33 @@
 <h1>Create Profile:</h1>
 
-<div class="container">
-  <form>
+<form action="/new" method="post">
+  <div class="container">
     <div class="form-group">
       <label for="full_name">Full Name:</label>
-      <input type="text" name="user[full_name]" id="full_name" class="form-control" placeholder="John Doe">
+      <input type="text" name="full_name" id="full_name" class="form-control" placeholder="John Doe">
     </div>
     <div class="form-group">
       <label for="provider_level">Choose a Provider Level:</label>
-      <select id="provider_level" name="user[provider_level]" class="form-control">
+      <select id="provider_level" name="provider_level" class="form-control">
         <option>EMT</option>
         <option>Paramedic</option>
       </select>
     </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="text" name="user[email]" id="email" class="form-control" placeholder="someone@example.com">
+      <input type="text" name="email" id="email" class="form-control" placeholder="someone@example.com">
     </div>
     <div class="form-group">
       <label for="username">Create Username:</label>
-      <input type="text" name="user[username]" id="username" class="form-control" placeholder="John123">
+      <input type="text" name="username" id="username" class="form-control" placeholder="John123">
     </div>
     <div class="form-group">
       <label for="password">Create Password:</label>
-      <input type="password" name="user[password]" id="password" class="form-control" placeholder="********">
+      <input type="password" name="password" id="password" class="form-control" placeholder="********">
     </div>
     <div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 
-  </form>
-</div>
+  </div>
+</form>
