@@ -1,1 +1,20 @@
-<h1>This is the show page for an individual instance of your model.</h1>
+<h4>You've successfully saved a your <%= @certs.cert_name %> certification</h4>
+
+<div class="d-flex flex-row">
+  <div class="p-2">
+    <div class="card">
+      <!-- <img class="card-img-top" src="/images/ACLS-ICON-SMALL-300x225.png" alt="Card image cap"> -->
+      <div class="card-body">
+        <h4 class="card-title"><%= @certs.cert_name %></h4>
+        <p class="card-text">
+          Certification Number: <%= @certs.cert_number %>
+        </p>
+        <p class="card-text">
+          Expiration Date: <%= @certs.exp_date %>
+        </p>
+        <a href="#!" class="btn btn-primary btn-sm">Edit</a>
+        <a href="#!" class="btn btn-primary btn-sm">Delete</a>
+      </div>
+    </div>
+  </div>
+</div>
