@@ -1,0 +1,10 @@
+<h2>My Credential Record</h2>
+
+<% @certs.each do |certification| %>
+<h4><%= certification.cert_name %></h4>
+  <ul>
+    <li>Certification Number: <%= certification.cert_number %></li>
+    <li>Expiration Date: <%= certification.exp_date %></li>
+  </ul>
+  <a href="/certs"><button type="button" class="btn btn-primary">Edit Certification</button></a>
+<% end %>
