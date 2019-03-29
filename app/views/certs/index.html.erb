@@ -6,5 +6,5 @@
     <li>Certification Number: <%= certification.cert_number %></li>
     <li>Expiration Date: <%= certification.exp_date %></li>
   </ul>
-  <a href="/certs"><button type="button" class="btn btn-primary">Edit Certification</button></a>
+  <a href="/certs/<%= certification.id %>/edit"><button type="button" class="btn btn-primary">Edit Certification</button></a>
 <% end %>
