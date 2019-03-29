@@ -8,6 +8,9 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if logged_in?
+      redirect "/users/#{current_user.username}"
+    end
     erb :index
   end
 
@@ -22,7 +25,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def logout!
-      session.clear 
+      session.clear
     end
 
   end
