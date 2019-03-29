@@ -7,7 +7,16 @@ class CertsController < ApplicationController
 
   # POST: /certs
   post "/certs" do
-    redirect "/certs"
+    if !logged_in?
+      redirect "/login"
+    end
+    if params[:cert_name] && params[:exp_date] != ""
+      @cert = Cert.create(cert_name: params[:cert_name], cert_number: params[:cert_number], exp_date: params[:exp_date], user_id: current_user.id)
+      redirect "/certs/#{@cert.id}"
+    else
+      # flash error
+      redirect "/certs/new"
+    end
   end
 
   # GET: /certs/5
