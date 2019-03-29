@@ -12,7 +12,6 @@ class UsersController < ApplicationController
       # flash "Not a Valid Input or Missing Info"
       redirect "/users/new"
     end
-    # binding.pry
   end
 
   get '/login' do
@@ -35,12 +34,11 @@ class UsersController < ApplicationController
     redirect "/"
   end
 
-  # GET: /users/5
   get "/users/:username" do
     if logged_in?
       @user = User.find_by(username: params[:username])
     else
-      redirect "/login"     
+      redirect "/login"
     end
     erb :"/users/show.html"
   end
