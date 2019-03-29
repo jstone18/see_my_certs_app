@@ -1,21 +1,21 @@
-<h4>You've successfully saved a your <%= @certs.cert_name %> certification</h4>
+<h4>You've successfully saved a your <%= @cert.cert_name %> certification</h4>
 
 <div class="d-flex flex-row">
   <div class="p-2">
     <div class="card">
       <!-- <img class="card-img-top" src="/images/ACLS-ICON-SMALL-300x225.png" alt="Card image cap"> -->
       <div class="card-body">
-        <h4 class="card-title"><%= @certs.cert_name %></h4>
+        <h4 class="card-title"><%= @cert.cert_name %></h4>
         <p class="card-text">
-          Certification Number: <%= @certs.cert_number %>
+          Certification Number: <%= @cert.cert_number %>
         </p>
         <p class="card-text">
-          Expiration Date: <%= @certs.exp_date %>
+          Expiration Date: <%= @cert.exp_date %>
         </p>
-        <form action="/certs/<%= @certs.id %>/delete" method="post">
+        <form action="/certs/<%= @cert.id %>/delete" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <input class="btn btn-primary btn-sm"   type="submit" value="Delete">
-          <a href="/certs/<%= @certs.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
+          <a href="/certs/<%= @cert.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
         </form>
       </div>
     </div>
