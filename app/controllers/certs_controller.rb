@@ -46,6 +46,9 @@ class CertsController < ApplicationController
 
   # DELETE: /certs/5/delete
   delete "/certs/:id/delete" do
+    @cert = Cert.find(params[:id])
+    binding.pry
+    @cert.destroy
     redirect "/certs"
   end
 end
