@@ -1,5 +1,14 @@
 class CertsController < ApplicationController
 
+  get '/certs' do
+    if logged_in?
+      @certs = Cert.all
+      erb :"certs/index.html"
+    else
+      redirect "/login"
+    end
+  end
+
   # GET: /certs/new
   get "/certs/new" do
     erb :"/certs/new.html"
@@ -21,6 +30,7 @@ class CertsController < ApplicationController
 
   # GET: /certs/5
   get "/certs/:id" do
+    @certs = Cert.find(params[:id])
     erb :"/certs/show.html"
   end
 
