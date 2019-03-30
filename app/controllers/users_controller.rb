@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   post "/users" do
-    if params[:full_name] != "" && params[:email] != "" && params[:password] != ""
+    if params[:full_name] != "" && params[:email] != "" && params[:password] != "" && params[:username] != ""
       @user = User.create(params)
       redirect "/login"
     else
