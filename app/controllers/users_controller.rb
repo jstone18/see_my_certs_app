@@ -5,12 +5,12 @@ class UsersController < ApplicationController
   end
 
   post "/users" do
-    if params[:full_name] != "" && params[:email] != "" && params[:password] != "" && params[:username] != ""
-      @user = User.create(params)
+    @user = User.new(params)
+    if @user.save
       flash[:success] = "Successfully Created Profile! Please log in."
       redirect "/login"
     else
-      flash[:error] = "Something went wrong! Please try submitting form again. Make sure all required fields are complete."
+      flash[:error] = "Account creation failure: #{@user.errors.full_messages.to_sentence}"
       redirect "/users/new"
     end
   end
