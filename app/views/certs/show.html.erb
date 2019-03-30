@@ -7,7 +7,12 @@
       <div class="card-body">
         <h4 class="card-title"><%= @cert.cert_name %></h4>
         <p class="card-text">
-          Certification Number: <%= @cert.cert_number %>
+          Certification Number:
+          <% if @cert.cert_number.empty? == false %>
+          <%= @cert.cert_number %>
+          <% else %>
+          n/a
+          <% end %>
         </p>
         <p class="card-text">
           Expiration Date: <%= @cert.exp_date %>
