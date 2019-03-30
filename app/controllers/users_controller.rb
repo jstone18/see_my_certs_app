@@ -7,9 +7,10 @@ class UsersController < ApplicationController
   post "/users" do
     if params[:full_name] != "" && params[:email] != "" && params[:password] != "" && params[:username] != ""
       @user = User.create(params)
+      flash[:success] = "Successfully Created Profile! Please log in."
       redirect "/login"
     else
-      # flash "Not a Valid Input or Missing Info"
+      flash[:error] = "Something went wrong! Please try submitting form again. Make sure all required fields are complete."
       redirect "/users/new"
     end
   end
@@ -19,12 +20,13 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username])
+    set_user
     if @user && @user.authenticate(params[:password])
       session[:id] = @user.id
-      # flash "Successfully Logged In!."
+      flash[:success] = "Successfully logged in!"
       redirect "users/#{@user.username}"
     else
+      flash[:error] = "Invalid input! Please create a profile or re-attempt log in with valid input."
       redirect '/login'
     end
   end
@@ -36,7 +38,7 @@ class UsersController < ApplicationController
 
   get "/users/:username" do
     if logged_in?
-      @user = User.find_by(username: params[:username])
+      set_user
     else
       redirect "/login"
     end
@@ -57,4 +59,11 @@ class UsersController < ApplicationController
   delete "/users/:id/delete" do
     redirect "/users"
   end
+
+  private
+
+  def set_user
+    @user = User.find_by(username: params[:username])
+  end
+
 end
