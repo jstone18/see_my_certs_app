@@ -1,6 +1,6 @@
 <h2>Edit Certification:</h2>
 
-<form action="/certs" method="post">
+<form action="/certs/<%= @cert.id %>" method="post">
   <input type="hidden" name="_method" value="patch">
     <div class="container">
       <div class="form-group">
