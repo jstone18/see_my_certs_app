@@ -1,4 +1,4 @@
-<h4>You've successfully saved a your <%= @cert.cert_name %> certification</h4>
+<% if current_user == @cert.user %>
 
 <div class="d-flex flex-row">
   <div class="p-2">
@@ -21,3 +21,5 @@
     </div>
   </div>
 </div>
+
+<% end %>
