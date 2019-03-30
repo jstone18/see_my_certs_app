@@ -2,7 +2,7 @@ class CertsController < ApplicationController
 
   get '/certs' do
     if logged_in?
-      @certs = Cert.all
+      @certs = current_user.certs
       erb :"certs/index.html"
     else
       redirect "/login"
@@ -31,7 +31,11 @@ class CertsController < ApplicationController
   # GET: /certs/5
   get "/certs/:id" do
     set_cert
-    erb :"/certs/show.html"
+    if logged_in?
+      erb :"/certs/show.html"
+    else
+      redirect "/login"
+    end
   end
 
   # GET: /certs/5/edit
@@ -41,9 +45,11 @@ class CertsController < ApplicationController
       if @cert.user == current_user
         erb :"/certs/edit.html"
       else
+        #flash message
         redirect "/users/#{current_user.username}"
       end
     else
+      # flash message
       redirect "/"
     end
   end
@@ -54,11 +60,14 @@ class CertsController < ApplicationController
     if logged_in?
       if @cert.user == current_user
         @cert.update(cert_name: params[:cert_name], cert_number: params[:cert_number], exp_date: params[:exp_date])
+        # flash message
         redirect "/certs/#{@cert.id}"
       else
+        #flash message
         redirect "/users/#{current_user.username}"
       end
     else
+      # flash message
       redirect "/"
     end
   end
@@ -67,6 +76,7 @@ class CertsController < ApplicationController
   delete "/certs/:id/delete" do
     set_cert
     @cert.destroy
+    # flash message
     redirect "/certs"
   end
 
