@@ -33,6 +33,13 @@ class ApplicationController < Sinatra::Base
       cert.user == current_user
     end
 
+    def redirect_if_not_logged_in
+      if !logged_in?
+        flash[:error] = "You must be logged in to perform this action. Please sign up or log in."
+        redirect '/'
+      end
+    end
+
   end
 
 end

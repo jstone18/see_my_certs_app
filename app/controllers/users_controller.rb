@@ -41,11 +41,8 @@ class UsersController < ApplicationController
   end
 
   get "/users/:username" do
-    if logged_in?
-      set_user
-    else
-      redirect "/login"
-    end
+    set_user
+    redirect_if_not_logged_in
     erb :"/users/show.html"
   end
 
