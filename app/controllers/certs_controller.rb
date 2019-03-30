@@ -61,13 +61,13 @@ class CertsController < ApplicationController
   patch "/certs/:id" do
     set_cert
     if logged_in?
-      if authorized?(@cert)
+      if authorized?(@cert) && params[:cert_name] != "" && params[:exp_date] != ""
         @cert.update(cert_name: params[:cert_name], cert_number: params[:cert_number], exp_date: params[:exp_date])
         # flash message
         redirect "/certs/#{@cert.id}"
       else
         #flash message
-        redirect "/users/#{current_user.username}"
+        redirect "/certs"
       end
     else
       # flash message
@@ -76,7 +76,7 @@ class CertsController < ApplicationController
   end
 
   # DELETE: /certs/5/delete
-  delete "/certs/:id/delete" do
+  delete "/certs/:id/" do
     set_cert
     @cert.destroy
     # flash message

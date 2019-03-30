@@ -12,7 +12,7 @@
         <p class="card-text">
           Expiration Date: <%= @cert.exp_date %>
         </p>
-        <form action="/certs/<%= @cert.id %>/delete" method="post">
+        <form action="/certs/<%= @cert.id %>" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <input class="btn btn-primary btn-sm"   type="submit" value="Delete">
           <a href="/certs/<%= @cert.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
