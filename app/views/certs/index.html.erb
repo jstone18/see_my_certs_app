@@ -2,10 +2,25 @@
 <h5>You currently have <%= @certs.count %> certifications.</h5><br>
 
 <% @certs.each do |certification| %>
-<h4><%= certification.cert_name %></h4>
-  <ul>
-    <li>Certification Number: <%= certification.cert_number %></li>
-    <li>Expiration Date: <%= certification.exp_date %></li>
-  </ul>
-  <a href="/certs/<%= certification.id %>/edit"><button type="button" class="btn btn-primary">Edit Certification</button></a><br>
+<div class="d-flex flex-row">
+  <div class="p-2">
+    <div class="card">
+      <!-- <img class="card-img-top" src="/images/ACLS-ICON-SMALL-300x225.png" alt="Card image cap"> -->
+      <div class="card-body">
+        <h4 class="card-title"><%= certification.cert_name %></h4>
+        <p class="card-text">
+          Certification Number: <%= certification.cert_number %>
+        </p>
+        <p class="card-text">
+          Expiration Date: <%= certification.exp_date %>
+        </p>
+        <form action="/certs/<%= certification.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <input class="btn btn-primary btn-sm"   type="submit" value="Delete">
+          <a href="/certs/<%= certification.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
