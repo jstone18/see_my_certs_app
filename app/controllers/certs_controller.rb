@@ -5,6 +5,7 @@ class CertsController < ApplicationController
       @certs = current_user.certs
       erb :"certs/index.html"
     else
+      # flash login message
       redirect "/login"
     end
   end
@@ -21,6 +22,7 @@ class CertsController < ApplicationController
     end
     if params[:cert_name] && params[:exp_date] != ""
       @cert = Cert.create(cert_name: params[:cert_name], cert_number: params[:cert_number], exp_date: params[:exp_date], user_id: current_user.id)
+      #flash success message
       redirect "/certs/#{@cert.id}"
     else
       # flash error
@@ -34,6 +36,7 @@ class CertsController < ApplicationController
     if logged_in?
       erb :"/certs/show.html"
     else
+      # flash login message
       redirect "/login"
     end
   end
@@ -42,7 +45,7 @@ class CertsController < ApplicationController
   get "/certs/:id/edit" do
     set_cert
     if logged_in?
-      if @cert.user == current_user
+      if authorized?(@cert)
         erb :"/certs/edit.html"
       else
         #flash message
@@ -50,7 +53,7 @@ class CertsController < ApplicationController
       end
     else
       # flash message
-      redirect "/"
+      redirect "/login"
     end
   end
 
@@ -58,7 +61,7 @@ class CertsController < ApplicationController
   patch "/certs/:id" do
     set_cert
     if logged_in?
-      if @cert.user == current_user
+      if authorized?(@cert)
         @cert.update(cert_name: params[:cert_name], cert_number: params[:cert_number], exp_date: params[:exp_date])
         # flash message
         redirect "/certs/#{@cert.id}"

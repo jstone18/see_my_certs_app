@@ -1,4 +1,4 @@
-<% if current_user == @cert.user %>
+<% if authorized?(@cert) %>
 
 <div class="d-flex flex-row">
   <div class="p-2">

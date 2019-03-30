@@ -28,6 +28,10 @@ class ApplicationController < Sinatra::Base
       session.clear
     end
 
+    def authorized?(cert)
+      cert.user == current_user
+    end
+
   end
 
 end
