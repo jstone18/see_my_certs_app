@@ -25,8 +25,12 @@ class UsersController < ApplicationController
       session[:id] = @user.id
       flash[:success] = "Successfully logged in!"
       redirect "users/#{@user.username}"
+    elsif
+      @user && !@user.authenticate(params[:password])
+      flash[:error] = "Invalid Password. Please try again"
+      redirect "/login"
     else
-      flash[:error] = "Invalid input! Please create a profile or re-attempt log in with valid input."
+      flash[:error] = "Invalid username. Please try again or create a profile if none exists"
       redirect '/login'
     end
   end
