@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190329003558) do
+ActiveRecord::Schema.define(version: 20190330220850) do
 
   create_table "certs", force: :cascade do |t|
     t.string  "cert_name"
     t.string  "exp_date"
-    t.string  "cert_number"
+    t.string  "cert_number", default: "n/a"
     t.integer "user_id"
   end
 
