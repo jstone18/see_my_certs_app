@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  get '/users' do
+    redirect_if_not_logged_in
+    redirect "/users/#{current_user.username}"
+  end
+
   get "/users/new" do
     erb :"/users/new.html"
   end
