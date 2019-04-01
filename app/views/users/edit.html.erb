@@ -1,4 +1,4 @@
-<h2>Edit Profile:</h2>
+<h2 style="color:white;">Edit Profile:</h2>
 
 <form action="/users/<%= @user.username %>" method="post">
   <input type="hidden" name="_method" value="patch">
@@ -8,12 +8,12 @@
         <input type="text" name="full_name" id="full_name" class="form-control" value="<%= @user.full_name %>">
       </div>
       <div class="form-group">
-        <label for="provider_level">Choose a Provider Level:</label>
-        <select id="provider_level" name="provider_level" class="form-control">
-          <option>EMT-Basic</option>
-          <option>EMT-Intermediate</option>
-          <option>Paramedic</option>
-        </select>
+        <label for="provider_level">Provider Level:</label>
+        <input type="text" name="provider_level" id="provider_level" class="form-control" value="<%= @user.provider_level %>">
+      </div>
+      <div class="form-group">
+        <label for="current_agency">Current Agency:</label>
+        <input type="text" name="current_agency" id="current_agency" class="form-control" value="<%= @user.current_agency %>">
       </div>
       <div class="form-group">
         <label for="email">Email:</label>
