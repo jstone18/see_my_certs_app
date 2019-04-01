@@ -1,31 +1,33 @@
 <h2 style="color:white;">My Credential Record</h2>
 <h5 style="color:white;">You currently have <%= @certs.count %> certifications.</h5><br>
 
-<div class="d-flex flex-row">
-<% @certs.each do |certification| %>
-  <div class="p-2">
-    <div class="card">
-      <!-- <img class="card-img-top" src="/images/ACLS-ICON-SMALL-300x225.png" alt="Card image cap"> -->
-      <div class="card-body">
-        <h4 class="card-title"><%= certification.cert_name %></h4>
-        <p class="card-text">
-          Certification Number:
-          <% if certification.cert_number.empty? == false %>
-          <%= certification.cert_number %>
-          <% else %>
-          n/a
-          <% end %>
-        </p>
-        <p class="card-text">
-          Expiration Date: <%= certification.exp_date %>
-        </p>
-        <form action="/certs/<%= certification.id %>/delete" method="post">
-          <input type="hidden" name="_method" value="DELETE">
-          <input class="btn btn-primary btn-sm" type="submit" value="Delete">
-          <a href="/certs/<%= certification.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
-        </form>
+<div class="d-flex flex-wrap">
+  <div class="d-flex flex-sm-wrap">
+    <% @certs.each do |certification| %>
+      <div class="p-2">
+        <div class="card">
+          <!-- <img class="card-img-top" src="/images/ACLS-ICON-SMALL-300x225.png" alt="Card image cap"> -->
+          <div class="card-body">
+            <h4 class="card-title"><%= certification.cert_name %></h4>
+            <p class="card-text">
+              Certification Number:
+              <% if certification.cert_number.empty? == false %>
+              <%= certification.cert_number %>
+              <% else %>
+              n/a
+              <% end %>
+            </p>
+            <p class="card-text">
+              Expiration Date: <%= certification.exp_date %>
+            </p>
+            <form action="/certs/<%= certification.id %>/delete" method="post">
+              <input type="hidden" name="_method" value="DELETE">
+              <input class="btn btn-primary btn-sm" type="submit" value="Delete">
+              <a href="/certs/<%= certification.id %>/edit" class="btn btn-primary btn-sm">Edit</a>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
 </div>

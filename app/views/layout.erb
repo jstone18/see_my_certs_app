@@ -32,62 +32,62 @@
   <body>
 
     <!-- Nav Bar -->
-    <div class="shadow p-3 mb-5 bg-light rounded">
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <% if !logged_in? %>
-                    <a class="dropdown-item" href="/users/new">Sign Up</a>
-                    <a class="dropdown-item" href="/login">Log In</a>
-                    <% end %>
-                    <% if logged_in? %>
-                    <a class="dropdown-item" href="/users">Profile Page</a>
-                    <a class="dropdown-item" href="/users/<%= current_user.username %>/edit">Edit Profile</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/logout">Log Out</a>
-                    <% end %>
-                  </div>
-                </li>
-                <% if logged_in? %>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/certs">Credential Record</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="/certs/new">Add New Credential</a>
-                </li>
+    <div class="shadow-lg p-3 mb-5 bg-light rounded">
+      <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <% if !logged_in? %>
+                <a class="dropdown-item" href="/users/new">Sign Up</a>
+                <a class="dropdown-item" href="/login">Log In</a>
                 <% end %>
-                <li class="nav-item active dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Education</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="https://ahainstructornetwork.americanheart.org/AHAECC/classConnector.jsp?pid=ahaecc.classconnector.home&courseid=1-5BPOMK&coursestyle=classroom&language=1001" target="_blank">CPR</a>
-                    <a class="dropdown-item" href="https://www.redcross.org/take-a-class/emt" target="_blank">EMT</a>
-                    <a class="dropdown-item" href="https://www.caahep.org/Students/Find-a-Program.aspx" target="_blank">Paramedic</a>
-                    <a class="dropdown-item" href="https://ahainstructornetwork.americanheart.org/AHAECC/classConnector.jsp?pid=ahaecc.classconnector.home&courseid=1-4ACOKM&language=1001" target="_blank">ACLS</a>
-                    <a class="dropdown-item" href="https://ahainstructornetwork.americanheart.org/AHAECC/classConnector.jsp?pid=ahaecc.classconnector.home&courseid=1-7RK8PA&coursestyle=classroom&language=1001" target="_blank">PALS</a>
-                  </div>
-                </li>
-                <li class="nav-item active dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="https://www.nremt.org/rwd/public" target="_blank">NREMT</a>
-                    <a class="dropdown-item" href="http://www.emsstrong.org/" target="_blank">EMS Strong</a>
-                    <a class="dropdown-item" href="http://www.capce.org/" target="_blank">CAPCE</a>
-                    <a class="dropdown-item" href="http://www.coaemsp.org/" target="_blank">CoAEMSP</a>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </nav>
+                <% if logged_in? %>
+                <a class="dropdown-item" href="/users">Profile Page</a>
+                <a class="dropdown-item" href="/users/<%= current_user.username %>/edit">Edit Profile</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="/logout">Log Out</a>
+                <% end %>
+              </div>
+            </li>
+            <% if logged_in? %>
+            <li class="nav-item active">
+              <a class="nav-link" href="/certs">Credential Record</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/certs/new">Add New Credential</a>
+            </li>
+            <% end %>
+            <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Education</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://ahainstructornetwork.americanheart.org/AHAECC/classConnector.jsp?pid=ahaecc.classconnector.home&courseid=1-5BPOMK&coursestyle=classroom&language=1001" target="_blank">CPR</a>
+                <a class="dropdown-item" href="https://www.redcross.org/take-a-class/emt" target="_blank">EMT</a>
+                <a class="dropdown-item" href="https://www.caahep.org/Students/Find-a-Program.aspx" target="_blank">Paramedic</a>
+                <a class="dropdown-item" href="https://ahainstructornetwork.americanheart.org/AHAECC/classConnector.jsp?pid=ahaecc.classconnector.home&courseid=1-4ACOKM&language=1001" target="_blank">ACLS</a>
+                <a class="dropdown-item" href="https://ahainstructornetwork.americanheart.org/AHAECC/classConnector.jsp?pid=ahaecc.classconnector.home&courseid=1-7RK8PA&coursestyle=classroom&language=1001" target="_blank">PALS</a>
+              </div>
+            </li>
+            <li class="nav-item active dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="https://www.nremt.org/rwd/public" target="_blank">NREMT</a>
+                <a class="dropdown-item" href="http://www.emsstrong.org/" target="_blank">EMS Strong</a>
+                <a class="dropdown-item" href="http://www.capce.org/" target="_blank">CAPCE</a>
+                <a class="dropdown-item" href="http://www.coaemsp.org/" target="_blank">CoAEMSP</a>
+              </div>
+            </li>
+          </ul>
         </div>
+      </nav>
+    </div>
 
     <! -- Flash Messages -->
     <div class="d-flex justify-content-center">
