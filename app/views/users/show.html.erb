@@ -1,4 +1,8 @@
-<h2 style="color:white;">Welcome, <%= @user.username %>!</h2>
+<div class="d-flex justify-content-center">
+  <div class="p-2">
+    <h3 style="color:white;">Welcome, <%= @user.username %>!</h3>
+  </div>
+</div>
 
 <div class="container emp-profile">
   <form method="post">
@@ -33,7 +37,7 @@
           <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
             <div class="row">
               <div class="col-md-6">
-                <label>User Name:</label>
+                <label>User Name</label>
               </div>
               <div class="col-md-6">
                 <p><%= @user.username %></p>

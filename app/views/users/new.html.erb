@@ -1,13 +1,18 @@
-<h1>Create Profile:</h1>
+<div class="d-flex justify-content-center">
+  <div class="p-2">
+    <h3 style="color:white;">Create Profile</h3>
+  </div>
+</div>
+
 
 <form action="/users" method="post">
   <div class="container">
     <div class="form-group">
-      <label for="full_name">*Full Name:</label>
+      <label for="full_name" style="color:white;">*Full Name:</label>
       <input type="text" name="full_name" id="full_name" class="form-control" placeholder="John Doe">
     </div>
     <div class="form-group">
-      <label for="provider_level">Choose a Provider Level:</label>
+      <label for="provider_level" style="color:white;">Choose a Provider Level:</label>
       <select id="provider_level" name="provider_level" class="form-control">
         <option>EMT-Basic</option>
         <option>EMT-Intermediate</option>
@@ -15,22 +20,22 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="current_agency">Current Agency:</label>
+      <label for="current_agency" style="color:white;">Current Agency:</label>
       <input type="text" name="current_agency" id="current_agency" class="form-control" placeholder="ABC Ambulance">
     </div>
     <div class="form-group">
-      <label for="email">*Email:</label>
+      <label for="email" style="color:white;">*Email:</label>
       <input type="text" name="email" id="email" class="form-control" placeholder="someone@example.com">
     </div>
     <div class="form-group">
-      <label for="username">*Create Username:</label>
+      <label for="username" style="color:white;">*Create Username:</label>
       <input type="text" name="username" id="username" class="form-control" placeholder="John123">
     </div>
     <div class="form-group">
-      <label for="password">*Create Password:</label>
+      <label for="password" style="color:white;">*Create Password:</label>
       <input type="password" name="password" id="password" class="form-control" placeholder="********">
     </div>
-    <p>(* Required)</p>
+    <p style="color:white;">* Required</p>
     <div>
       <button type="submit" class="btn btn-primary">Create Profile</button>
     </div>
