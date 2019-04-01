@@ -66,9 +66,8 @@ class UsersController < ApplicationController
   patch "/users/:username" do
     set_user
     redirect_if_not_logged_in
-    if @user
-      binding.pry
-      @user.update(full_name: params[:full_name], provider_level: params[:provider_level], email: params[:email])
+    if @user && params[:full_name] != "" && params[:email] != ""
+      @user.update(full_name: params[:full_name], provider_level: params[:provider_level], current_agency: params[:current_agency], email: params[:email])
       flash[:success] = "Successfully edited profile."
       redirect "/users/#{@user.username}"
     else
@@ -78,8 +77,12 @@ class UsersController < ApplicationController
   end
 
   # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
+  delete "/users/:id" do
+    redirect_if_not_logged_in
+    set_user
+    @user.destroy
+    flash[:success] = "Your certification was successfully deleted from your record!"
+    redirect "/"
   end
 
   private
