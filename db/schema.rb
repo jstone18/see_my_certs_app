@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190330220850) do
+ActiveRecord::Schema.define(version: 20190401011131) do
 
   create_table "certs", force: :cascade do |t|
     t.string  "cert_name"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20190330220850) do
     t.string "email"
     t.string "username"
     t.string "password_digest"
+    t.string "current_agency"
   end
 
 end
