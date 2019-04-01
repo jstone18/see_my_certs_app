@@ -52,13 +52,28 @@ class UsersController < ApplicationController
   end
 
   # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit.html"
+  get "/users/:username/edit" do
+    set_user
+    redirect_if_not_logged_in
+    if current_user
+      erb :"/users/edit.html"
+    else
+      redirect "/users/#{current_user.username}"
+    end
   end
 
   # PATCH: /users/5
-  patch "/users/:id" do
-    redirect "/users/:id"
+  patch "/users/:username" do
+    set_user
+    redirect_if_not_logged_in
+    if current_user && params[:full_name] != "" && params[:email] != ""
+      @user.update(full_name: params[:full_name], provider_level: params[:provider_level], email: params[:email])
+      flash[:success] = "Successfully edited profile."
+      redirect "/users/#{@user.username}"
+    else
+      flash[:error] = "Something went wrong! Please try again, be sure there are no blank fields."
+      redirect "/users"
+    end
   end
 
   # DELETE: /users/5/delete
