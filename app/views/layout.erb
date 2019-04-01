@@ -92,20 +92,20 @@
     <! -- Flash Messages -->
     <div class="d-flex justify-content-center">
       <% if flash[:error] %>
-      <div class="p-2"><button type="button" class="btn btn-outline-warning"><%= flash[:error] %></button></div>
+      <div class="p-2"><button type="button" class="btn btn-warning"><%= flash[:error] %></button></div>
       <% end %>
     </div>
 
     <div class="d-flex justify-content-center">
       <% if flash[:success] %>
-      <div class="p-2"><button type="button" class="btn btn-outline-success"><%= flash[:success] %></button></div>
+      <div class="p-2"><button type="button" class="btn btn-success"><%= flash[:success] %></button></div>
       <% end %>
     </div>
 
     <%= yield %>
 
     <div class="wrapper">
-      <footer class="branding">
+      <footer class="branding" style="color:white;">
         <small>&copy; 2019 <strong>SeeMyCerts</strong></small>
       </footer>
     </div>
