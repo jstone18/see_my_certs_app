@@ -14,6 +14,10 @@ class ApplicationController < Sinatra::Base
 
   helpers do
 
+    def set_user
+      @user = User.find_by(username: params[:username])
+    end
+
     def current_user
       @current_user ||= User.find_by(id: session[:id])
     end
@@ -38,5 +42,4 @@ class ApplicationController < Sinatra::Base
     end
 
   end
-
 end
