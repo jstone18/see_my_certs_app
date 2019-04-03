@@ -6,13 +6,11 @@ class CertsController < ApplicationController
     erb :"certs/index.html"
   end
 
-  # GET: /certs/new
   get "/certs/new" do
     redirect_if_not_logged_in
     erb :"/certs/new.html"
   end
 
-  # POST: /certs
   post "/certs" do
     if !logged_in?
       redirect "/login"
@@ -27,14 +25,12 @@ class CertsController < ApplicationController
     end
   end
 
-  # GET: /certs/5
   get "/certs/:id" do
     redirect_if_not_logged_in
     set_cert
     erb :"/certs/show.html"
   end
 
-  # GET: /certs/5/edit
   get "/certs/:id/edit" do
     set_cert
     redirect_if_not_logged_in
@@ -46,7 +42,6 @@ class CertsController < ApplicationController
     end
   end
 
-  # PATCH: /certs/5
   patch "/certs/:id" do
     set_cert
     redirect_if_not_logged_in
@@ -60,7 +55,6 @@ class CertsController < ApplicationController
     end
   end
 
-  # DELETE: /certs/5/delete
   delete "/certs/:id/delete" do
     redirect_if_not_logged_in
     set_cert
