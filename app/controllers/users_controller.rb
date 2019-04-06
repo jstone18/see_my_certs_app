@@ -39,7 +39,8 @@ class UsersController < ApplicationController
   patch "/users/:username" do
     set_user
     redirect_if_not_logged_in
-    if @user && params[:full_name] != "" && params[:email] != ""
+    if @user && params[:full_name] != "" && params[:email] != "" && params[:username] != ""
+      binding.pry
       @user.update(full_name: params[:full_name], provider_level: params[:provider_level], current_agency: params[:current_agency], email: params[:email])
       flash[:success] = "Successfully edited profile."
       redirect "/users/#{@user.username}"

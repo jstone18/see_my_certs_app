@@ -15,7 +15,7 @@ class CertsController < ApplicationController
     if !logged_in?
       redirect "/login"
     end
-    if params[:cert_name] && params[:exp_date] != ""
+    if params[:cert_name] != "" && params[:exp_date] != ""
       @cert = Cert.create(cert_name: params[:cert_name], cert_number: params[:cert_number], exp_date: params[:exp_date], user_id: current_user.id)
       flash[:success] = "You've Successfully created a new certification!"
       redirect "/certs/#{@cert.id}"
