@@ -22,6 +22,7 @@ class SessionsController < ApplicationController
 
   get '/logout' do
     logout!
+    flash[:success] = "Successfully Logged Out."
     redirect "/"
   end
 
