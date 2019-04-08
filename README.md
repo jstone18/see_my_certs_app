@@ -1,11 +1,36 @@
+## See My Certs
+
 A simple MVC Sinatra web application that stores healthcare certifications. The app allows users to sign up, log in and create certifications. Users are able to edit and delete their own certifications as well as view all of them in one central location.
 
-LICENSE
+###### User have the ability to:
+  - Create a new profile
+  - Log in and view their profile
+  - Edit profile
+  - Create and edit healthcare certifications
+  - View all saved certifications in Credential Record
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Video Walkthrough: https://www.youtube.com/watch?v=sd7voPJd9tE
 
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+## Check It Out
+See My Certs is currently deployed at https://see-my-certs-app.herokuapp.com/
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+## Usage
+  1. Fork and Clone repository
+  2. In project directory, run 'bundle install'
+  3. 'rake db:migrate'
+  3. Run 'shotgun' to start local server
+  4. Open browser window and go to local server address
+
+## Contributing
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/jstone18/see_my_certs_app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+
+## License
+
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+
+Everyone interacting in the Testing project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/jstone18/testing/blob/master/CODE_OF_CONDUCT.md).
 
 Copyright 2019 jstone18
